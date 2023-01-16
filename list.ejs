@@ -1,0 +1,29 @@
+<!-- o código abaixo reaproveita o layout do header criado em outra aba, é 
+um método para reaproveitamento do código em várias partes -->
+
+<%-include ("header") -%>
+
+
+    <div class="box" id="heading">
+        <h1> <%= listTitle %> </h1>
+    </div>
+    <div class="box">
+      <!-- o código abaixo é um for loop para iterar por cada novo item criado
+    e acrescentar a lista criada no app.js, já iniciada com 3 itens. Reparar
+    na sintaxe necessária para cada linha funcionar como um código
+    e para o li receber uma variável -->
+      <% for (var i=0; i<newListItems.length; i++){ %>
+        <div class="item">
+            <input type="checkbox">
+          <p> <%= newListItems[i] %> </p>
+        </div>
+
+      <% } %>
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <button type="submit" name="list" value=<%= listTitle %>>+</button>
+
+</div>
+</form>
+
+<%-include ("footer") -%>
